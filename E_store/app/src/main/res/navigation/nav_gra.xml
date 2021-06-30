@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_gra"
+    app:startDestination="@id/exploerFragment">
+
+    <fragment
+        android:id="@+id/exploerFragment"
+        android:name="com.example.e_store.ExploerFragment"
+        android:label="fragment_exploer"
+        tools:layout="@layout/fragment_exploer" >
+        <action
+            android:id="@+id/action_exploerFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/action_exploerFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.e_store.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/acountFragment"
+        android:name="com.example.e_store.AcountFragment"
+        android:label="fragment_acount"
+        tools:layout="@layout/fragment_acount" >
+        <action
+            android:id="@+id/action_acountFragment_to_exploerFragment"
+            app:destination="@id/exploerFragment" />
+        <action
+            android:id="@+id/action_acountFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.e_store.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" >
+        <action
+            android:id="@+id/action_productDetailsFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_exploerFragment"
+            app:destination="@id/exploerFragment" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_writeReviwFragment"
+            app:destination="@id/writeReviwFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.e_store.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.e_store.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+        <argument
+            android:name="forgotenPass"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_signInFragment_to_passWordRestFragment"
+            app:destination="@id/passWordRestFragment"
+            app:launchSingleTop="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/writeReviwFragment"
+        android:name="com.example.e_store.WriteReviwFragment"
+        android:label="fragment_write_reviw"
+        tools:layout="@layout/fragment_write_reviw" >
+        <argument
+            android:name="UserId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="productId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.e_store.searchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+        <argument
+            android:name="category"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="no" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.e_store.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.example.e_store.OrderFragment"
+        android:label="fragment_order"
+        tools:layout="@layout/fragment_order" >
+        <action
+            android:id="@+id/action_orderFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+        <argument
+            android:name="totalPrice"
+            app:argType="string"
+            android:defaultValue='"0"' />
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.example.e_store.SummaryFragment"
+        android:label="fragment_summary"
+        tools:layout="@layout/fragment_summary" >
+        <argument
+            android:name="adsress"
+            app:argType="string"
+            android:defaultValue="home" />
+        <action
+            android:id="@+id/action_summaryFragment_to_exploerFragment"
+            app:destination="@id/exploerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passWordRestFragment"
+        android:name="com.example.e_store.PassWordRestFragment"
+        android:label="fragment_pass_word_rest"
+        tools:layout="@layout/fragment_pass_word_rest" >
+        <action
+            android:id="@+id/action_passWordRestFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <argument
+            android:name="userEmail"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
+</navigation>
